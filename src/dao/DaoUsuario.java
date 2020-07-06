@@ -26,7 +26,7 @@ public class DaoUsuario {
             statement.setString(2,usuario.getSenha());
             statement.setString(3,usuario.getEmail());
             statement.execute();
-           // connection.commit();
+
             return true;
         } catch (Exception e) {
             e.printStackTrace();
@@ -45,7 +45,7 @@ public class DaoUsuario {
             ResultSet resultSet = statement.executeQuery();
 
           if (resultSet.next()){
-              System.out.println("achou!");
+
               return true;
 
           }else {
@@ -82,5 +82,19 @@ public class DaoUsuario {
 
         }
         return usuarios;
+    }
+    public boolean deletarUsuario(String email){
+
+        try {
+            String sql = "delete from contas where email='"+email+"'";
+            PreparedStatement statement = connection.prepareStatement(sql);
+            statement.execute();
+            //connection.commit();
+            return true;
+        }catch (Exception e){
+            e.printStackTrace();
+            return false;
+        }
+
     }
 }

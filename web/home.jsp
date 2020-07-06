@@ -32,8 +32,8 @@
             <td>
                 <c:out value="${user.senha}"/>
             </td>
-            <td><a href="ServletValidarUsuario?acao=deletar&user="${user.email}"">EDIDAR</a></td>
-            <td><a href="#">EXCLUIR</a></td>
+            <td><a href="ServletControlerUsuario?acao=ediar&email=${user.email}">EDIDAR</a></td>
+            <td><a href="ServletControlerUsuario?acao=deletar&email=${user.email}">EXCLUIR</a></td>
 
 
         </tr>
