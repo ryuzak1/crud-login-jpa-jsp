@@ -20,5 +20,10 @@
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="library" scope="PROVIDED" name="Tomcat 9.0.351-serv" level="application_server_libraries" />
+    <orderEntry type="library" name="jstl-1.2" level="project" />
+    <orderEntry type="library" name="postgresql-42.2.14" level="project" />
+    <orderEntry type="library" name="javax.annotation" level="project" />
+    <orderEntry type="library" name="jaxb-api" level="project" />
+    <orderEntry type="library" name="FastInoset" level="project" />
   </component>
 </module>

@@ -1,0 +1,11 @@
+<component name="libraryTable">
+  <library name="FastInoset">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/lib/FastInoset.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/gmbal-api-only.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/ha-api.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
