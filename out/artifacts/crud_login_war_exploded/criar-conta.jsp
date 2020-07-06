@@ -13,7 +13,7 @@
   </head>
   <body>
 
-  <form action="UsuarioServlet" method="post">
+  <form action="ServletCadastrarUsuario" method="post">
     <div class="imgcontainer">
       <img src="static/img/img_avatar2.png" alt="Avatar" class="avatar">
     </div>

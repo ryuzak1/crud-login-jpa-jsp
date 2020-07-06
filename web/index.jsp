@@ -14,7 +14,7 @@
   </head>
   <body>
 
-  <form method="post" action="ServletUsuario">
+  <form method="post" action="ServletValidarUsuario">
     <div class="imgcontainer">
       <img src="static/img/img_avatar2.png" alt="Avatar" class="avatar">
     </div>

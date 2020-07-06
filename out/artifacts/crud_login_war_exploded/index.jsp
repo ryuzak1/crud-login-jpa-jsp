@@ -14,7 +14,7 @@
   </head>
   <body>
 
-  <form method="post" action="ServletUsuario">
+  <form method="post" action="ServletValidarUsuario">
     <div class="imgcontainer">
       <img src="static/img/img_avatar2.png" alt="Avatar" class="avatar">
     </div>
@@ -30,7 +30,7 @@
     </div>
     <div class="container" style="background-color:#f1f1f1">
       <button type="button" class="cancelbtn">Cancelar</button>
-      <span class="psw">Criar<a href="criar-conta.jsp">Conta!</a></span>
+      <span class="psw">Criar <a href="criar-conta.jsp">Conta!</a></span>
     </div>
   </form>
 
