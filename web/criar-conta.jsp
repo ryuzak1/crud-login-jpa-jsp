@@ -22,12 +22,12 @@
       <%--@declare id="uname"--%>
       <%--@declare id="psw"--%>
       <label for="uname"><b>Username</b></label>
-      <input type="text" placeholder="Enter Username" name="email" required>
+      <input type="text" placeholder="Enter Username" name="email" value="${usuario.email}" required>
       <label for="psw"><b>Password</b></label>
-      <input type="password" placeholder="Enter Password" name="senha" required>
+      <input type="password" placeholder="Enter Password" name="senha" value="${usuario.senha}" required>
         <label ><b>Nome</b></label>
-        <input type="text" placeholder="Seu nome" name="nome" required>
-      <button type="submit">Login</button>
+        <input type="text" placeholder="Seu nome" name="nome" value="${usuario.nome}"required>
+      <button type="submit">Salvar</button>
     </div>
     <div class="container" style="background-color:#f1f1f1">
       <span class="psw">Voltar <a href="index.jsp">Login!</a></span>

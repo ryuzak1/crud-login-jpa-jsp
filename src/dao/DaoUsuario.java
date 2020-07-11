@@ -22,9 +22,9 @@ public class DaoUsuario {
         try {
             String sql = "insert into contas(nome,senha,email) values (?,?,?)";
             PreparedStatement statement = connection.prepareStatement(sql);
-            statement.setString(1,usuario.getNome());
-            statement.setString(2,usuario.getSenha());
-            statement.setString(3,usuario.getEmail());
+            statement.setString(1, usuario.getNome());
+            statement.setString(2, usuario.getSenha());
+            statement.setString(3, usuario.getEmail());
             statement.execute();
 
             return true;
@@ -37,63 +37,102 @@ public class DaoUsuario {
         }
     }
 
-    public boolean validarUsuario(String email, String senha){
+    public boolean validarUsuario(String email, String senha) {
 
         try {
-            String sql = "select * from contas where email = '"+email+"'and senha = '"+senha+"'";
+            String sql = "select * from contas where email = '" + email + "'and senha = '" + senha + "'";
             PreparedStatement statement = connection.prepareStatement(sql);
             ResultSet resultSet = statement.executeQuery();
 
-          if (resultSet.next()){
+            if (resultSet.next()) {
 
-              return true;
+                return true;
 
-          }else {
-              System.out.println("Usuario não localizado");
-              return false;
-          }
+            } else {
+                System.out.println("Usuario não localizado");
+                return false;
+            }
 
-        }catch (Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
-            System.out.println("Erro na busca o usuário "+e.getMessage());
+            System.out.println("Erro na busca o usuário " + e.getMessage());
 
         }
         return false;
     }
-    public List<Usuario> listarUsuarios(){
+
+    public List<Usuario> listarUsuarios() {
         List<Usuario> usuarios = new ArrayList<>();
 
         try {
 
             String sql = "select * from contas";
             PreparedStatement statement = connection.prepareStatement(sql);
-            ResultSet resultSet =statement.executeQuery();
+            ResultSet resultSet = statement.executeQuery();
 
-            while (resultSet.next()){
-                Usuario usuario = new Usuario(resultSet.getString("nome"),resultSet.getString("senha"),resultSet.getString("email"));
+            while (resultSet.next()) {
+                Usuario usuario = new Usuario(resultSet.getString("nome"), resultSet.getString("senha"), resultSet.getString("email"));
                 usuarios.add(usuario);
             }
 
             return usuarios;
 
-        }catch (Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
-            System.out.println("erro ao listar usuários "+e.getMessage());
+            System.out.println("erro ao listar usuários " + e.getMessage());
 
         }
         return usuarios;
     }
-    public boolean deletarUsuario(String email){
+
+    public boolean deletarUsuario(String email) {
 
         try {
-            String sql = "delete from contas where email='"+email+"'";
+            String sql = "delete from contas where email='" + email + "'";
             PreparedStatement statement = connection.prepareStatement(sql);
             statement.execute();
             //connection.commit();
             return true;
-        }catch (Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
             return false;
+        }
+
+    }
+
+    public Usuario PesquisarUsuario(String email) {
+
+        try {
+            String sql = "select * from contas where email='" + email + "'";
+            PreparedStatement statement = connection.prepareStatement(sql);
+            ResultSet resultSet = statement.executeQuery();
+
+            if (resultSet.next()) {
+                Usuario usuario = new Usuario(resultSet.getString("nome"), resultSet.getString("senha"), resultSet.getString("email"));
+                return usuario;
+
+            } else {
+                return null;
+            }
+
+        } catch (Exception e) {
+
+        }
+        return null;
+    }
+    public boolean atualizarUsuario(Usuario usuario){
+
+        try {
+            String sql = "update contas set nome ='"+usuario.getNome()+"', senha='"+usuario.getSenha()+"' where email='"+usuario.getEmail()+"'";
+            PreparedStatement statement = connection.prepareStatement(sql);
+            statement.execute();
+            System.out.println("Usuario Atualizado com sucesso!");
+            return true;
+        }catch (Exception e){
+            e.printStackTrace();
+            System.out.println("Erro na atualização do usuário!");
+            return  false;
+
         }
 
     }

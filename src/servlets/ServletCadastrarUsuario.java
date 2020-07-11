@@ -21,6 +21,9 @@ public class ServletCadastrarUsuario extends HttpServlet {
         String email = request.getParameter("email");
         Usuario usuario = new Usuario(nome,senha,email);
 
+        Usuario usuarioPesquisa = daoUsuario.PesquisarUsuario(email);
+        if(usuarioPesquisa == null){
+
         if(daoUsuario.cadastrarUsuario(usuario)){
             RequestDispatcher requestDispatcher = request.getRequestDispatcher("sucessoCadastro.jsp");
             requestDispatcher.forward(request,response);
@@ -28,7 +31,17 @@ public class ServletCadastrarUsuario extends HttpServlet {
 
             System.out.println("Usuário não cadastrado");
         }
+        }else{
+            if (daoUsuario.atualizarUsuario(usuario)){
+                RequestDispatcher requestDispatcher = request.getRequestDispatcher("sucessoCadastro.jsp");
+                requestDispatcher.forward(request,response);
 
+            }
+            else {
+                System.out.println("Usuário não cadastrado");
+            }
+
+        }
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
